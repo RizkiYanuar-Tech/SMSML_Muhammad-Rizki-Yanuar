@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/820045870119241232/a2b4b2d3e7e94a8ba582c9e067b1b0f9/artifacts
+end_time: 1756820905117
+entry_point_name: ''
+experiment_id: '820045870119241232'
+lifecycle_stage: active
+run_id: a2b4b2d3e7e94a8ba582c9e067b1b0f9
+run_name: sneaky-eel-90
+run_uuid: a2b4b2d3e7e94a8ba582c9e067b1b0f9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756820883464
+status: 3
+tags: []
+user_id: DELL

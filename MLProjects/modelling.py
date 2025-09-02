@@ -32,8 +32,6 @@ X_train, X_test, y_train, y_test = preprocess(stuper, 'Exam_Score', ['Hours_Stud
 
 #Mlflow Tracking URI
 mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-#Experiment Title
-mlflow.set_experiment("Model Final")
 
 #Training Model
 with mlflow.start_run():

@@ -1,6 +1,3 @@
-destination_id: c41615fbbfc460927e88b9115ec8a52e
-destination_type: RUN
-source_id: c41615fbbfc460927e88b9115ec8a52e
-source_type: DATASET
-tags:
-  mlflow.data.context: eval
+version https://git-lfs.github.com/spec/v1
+oid sha256:3315a98d7e7662cc5a725aa60e826083a71d5b726a27c9fa170d0366381fac5b
+size 170

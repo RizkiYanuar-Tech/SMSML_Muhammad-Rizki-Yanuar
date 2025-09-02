@@ -1,6 +1,3 @@
-artifact_location: mlflow-artifacts:/820045870119241232
-creation_time: 1756820882938
-experiment_id: '820045870119241232'
-last_update_time: 1756820882938
-lifecycle_stage: active
-name: Model Final
+version https://git-lfs.github.com/spec/v1
+oid sha256:8cdf3e80884f938534b8d4fdd58079ce0c6bb16a89f08877bf7cc81529440d5e
+size 195

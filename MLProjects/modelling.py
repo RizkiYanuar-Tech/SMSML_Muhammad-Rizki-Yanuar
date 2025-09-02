@@ -30,9 +30,6 @@ except FileNotFoundError:
 #Preprocessing & Splitting Data
 X_train, X_test, y_train, y_test = preprocess(stuper, 'Exam_Score', ['Hours_Studied','Tutoring_Sessions'], 'Preprocess_pipeline.joblib', 'Train_studentperformancefactors.csv', 'Test_studentperformancefactors.csv')
 
-#Mlflow Tracking URI
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-
 #Training Model
 with mlflow.start_run():
     mlflow.autolog()

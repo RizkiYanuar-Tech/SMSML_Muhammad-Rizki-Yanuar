@@ -1,6 +1,6 @@
 name: Student Performance Predictor
 
-conda_env: conda.yaml
+conda_env: mlartifacts/model/conda.yaml
 
 entry_points:
   main:

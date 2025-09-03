@@ -33,6 +33,10 @@ jobs:
       - name: Check Env
         run: |
           echo $CSV_URL
+
+      #debug repository
+      - name: List files in the repository
+        run: ls -R
  
       # Install mlflow
       - name: Install dependencies

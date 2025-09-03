@@ -58,10 +58,10 @@ jobs:
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
           echo "Latest run_id: $RUN_ID"
 
-      # Build Docker Model
-      - name: Build Docker Model
+       # Buat Dockerfile dari model
+      - name: Generate Dockerfile
         run: |
-          mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "smsml" 
+          mlflow models generate-dockerfile --model-uri "runs:/${{ steps.get_run_id.outputs.run_id }}/model" -d .
 
       # Ganti base image di Dockerfile
       - name: Patch Dockerfile to use Ubuntu 22.04

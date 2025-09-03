@@ -67,7 +67,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push ${{ secrects.DOCKER_HUB_USERNAME }}/smsml:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/smsml:latest
 
       - name: Set up Git LFS
         run: |

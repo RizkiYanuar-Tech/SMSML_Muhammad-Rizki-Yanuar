@@ -1,6 +1,6 @@
 name: Student Performance Predictor
 
-conda_env: conda.yaml
+conda_env: requirements.txt
 
 entry_points:
   main:

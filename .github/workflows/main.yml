@@ -73,25 +73,3 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/smsml:latest
-
-      - name: Set up Git LFS
-        run: |
-          git config --global user.name ${{ secrets.username }}
-          git config --global user.email ${{ secrets.email }}
-          git lfs install
-          git lfs track "mlruns/**"
-          git add .gitattributes
-          git commit -m "Track large files in mlruns with Git LFS" || true
-          git push origin main
- 
-      # Save models to GitHub Repository
-      - name: Save mlruns to repo
-        env:
-          USERNAME: ${{secrets.USERNAME}}
-          EMAIL: ${{secrets.EMAIL}}
-        run: |
-          git config --global user.name "$USERNAME"
-          git config --global user.email "$EMAIL"
-          git add mlruns/
-          git commit -m "Save mlruns from CI run"
-          git push origin main

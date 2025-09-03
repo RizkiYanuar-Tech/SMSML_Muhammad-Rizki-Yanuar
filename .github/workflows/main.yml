@@ -56,21 +56,10 @@ jobs:
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
           echo "Latest run_id: $RUN_ID"
 
-      # Copy MLflow artefak di dalam mlruns.
-      - name: Prepare Artifacts for Docker Build
+      # Build Docker Model
+      - name: Build Docker Model
         run: |
-          # Dapatkan path ke artefak dari run terbaru
-          mlflow artifacts download --run-id $RUN_ID --dst-path ./artifacts
-          
-          # Pindahkan artefak ke direktori utama agar Dockerfile bisa menemukannya
-          mv ./artifacts/model/model.pkl ./final_model.joblib
-          # Asumsi preprocessor juga disimpan sebagai artefak dengan nama 'preprocessor'
-          mv ./artifacts/preprocessor/preprocessor.joblib ./Preprocess_pipeline.joblib
-
-      - name: Build and Tag Docker Image
-        run: |
-          docker build -t smsml .
-          docker tag smsml ${{ secrets.DOCKER_HUB_USERNAME }}/smsml:latest
+          mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "cc" 
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2

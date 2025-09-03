@@ -15,10 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./MLProjects
-
     #permission content
     permissions:
       contents: write
@@ -51,7 +47,7 @@ jobs:
       # Run as a mlflow project
       - name: Run mlflow project
         run: |
-          mlflow run file://$GITHUB_WORKSPACE/MLProjects --env-manager=local
+          mlflow run MLProjects --env-manager=local
 
       - name: Get latest MLflow run_id
         run: |

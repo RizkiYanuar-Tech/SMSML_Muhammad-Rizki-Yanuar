@@ -56,8 +56,7 @@ jobs:
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
           echo "Latest run_id: $RUN_ID"
 
-      - # Sebelum build, kita perlu artefak modelnya.
-      # MLflow menyimpan artefak di dalam mlruns. Mari kita salin dari sana.
+      # Copy MLflow artefak di dalam mlruns.
       - name: Prepare Artifacts for Docker Build
         run: |
           # Dapatkan path ke artefak dari run terbaru

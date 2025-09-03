@@ -1,4 +1,4 @@
-name: CI
+name: CI Pipeline Model
 
 on:
   push:
@@ -10,6 +10,7 @@ on:
 
 env:
   CSV_URL: "MLProjects/train_studentperformancefactors.csv"
+  TARGET_VAR: "Exam_Score"
 
 jobs:
   build:
@@ -17,11 +18,12 @@ jobs:
 
     #permission content
     permissions:
-      contents: write
+      contents: read
+      packages: write
 
     steps:
       #check-out repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Setup Python 3.12.7
       - name: Set up Python 3.12.7
@@ -59,7 +61,14 @@ jobs:
       # Build Docker Model
       - name: Build Docker Model
         run: |
-          mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "cc" 
+          mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "smsml" 
+
+      # Ganti base image di Dockerfile
+      - name: Patch Dockerfile to use Ubuntu 22.04
+        run: |
+          sed -i 's/FROM ubuntu:20.04/FROM ubuntu:22.04/g' Dockerfile
+          echo "--- Patched Dockerfile content ---"
+          cat Dockerfile
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2

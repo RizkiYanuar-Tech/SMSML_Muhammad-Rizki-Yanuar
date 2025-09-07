@@ -9,7 +9,7 @@ on:
       - main
 
   env:
-    CSV_URL: "MLProjects/Train_studentperformancefactors.csv"
+    CSV_URL: "./MLProjects/Train_studentperformancefactors.csv"
     TARGET_VAR: "Exam_Score"
 
   jobs:
@@ -60,4 +60,4 @@ on:
 
       - name: Push Docker Image
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/smsl:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/smsml:latest

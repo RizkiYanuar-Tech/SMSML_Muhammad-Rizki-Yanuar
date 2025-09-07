@@ -9,16 +9,12 @@ on:
       - main
 
 env:
-  CSV_URL: "Working_CI/MLProjects/train_studentperformancefactors.csv"
+  CSV_URL: "MLProjects/train_studentperformancefactors.csv"
   TARGET_VAR: "Exam_Score"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    #permission content
-    permissions:
-      contents: write
 
     steps:
       #check-out repository under $GITHUB_WORKSPACE

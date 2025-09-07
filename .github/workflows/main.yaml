@@ -34,7 +34,7 @@ jobs:
 
       - name: Run mlflow project
         run: |
-          export PYTHONPATH: $GITHUB_WORKSPACE
+          export PYTHONPATH=$GITHUB_WORKSPACE
           mlflow run file://$GITHUB_WORKSPACE/Workflow_CI/MLProjects --env-manager=local
 
       - name: Get latest MLflow run_id

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1757226808780
+current_stage: None
+description: ''
+last_updated_timestamp: 1757226808780
+name: Regression_Model
+run_id: 9aa43a0e58c347e5a2613e194d054758
+run_link: ''
+source: mlflow-artifacts:/0/9aa43a0e58c347e5a2613e194d054758/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/9aa43a0e58c347e5a2613e194d054758/artifacts/model
+user_id: null
+version: 1

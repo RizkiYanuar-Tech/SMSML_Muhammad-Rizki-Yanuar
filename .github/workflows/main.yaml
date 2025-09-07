@@ -1,4 +1,4 @@
-name: CI/CD MLflow
+oname: CI/CD MLflow
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
 
       - name: Run mlflow project
         env:
-          PYTHONPATH: $GITHUB_WORKSPACE
+          export PYTHONPATH: $GITHUB_WORKSPACE
         run: |
           mlflow run file://$GITHUB_WORKSPACE/Workflow_CI/MLProjects --env-manager=local
 

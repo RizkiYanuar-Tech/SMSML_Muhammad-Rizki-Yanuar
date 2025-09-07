@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  CSV_URL: "MLProjects/train_studentperformancefactors.csv"
+  CSV_URL: "Working_CI/MLProjects/train_studentperformancefactors.csv"
   TARGET_VAR: "Exam_Score"
 
 jobs:
@@ -41,9 +41,10 @@ jobs:
  
       # Install mlflow
       - name: Install dependencies
+        working-directory: ./Workflow_CI/MLProjects
         run: |
           python -m pip install --upgrade pip
-          pip install mlflow
+          pip install -r requirements.txt
       
       # Run as a mlflow project
       - name: Run mlflow project

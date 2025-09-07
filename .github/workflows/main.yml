@@ -18,8 +18,7 @@ jobs:
 
     #permission content
     permissions:
-      contents: read
-      packages: write
+      contents: write
 
     steps:
       #check-out repository under $GITHUB_WORKSPACE

@@ -1,6 +1,5 @@
 name: CI/CD MLflow
 
-# Kunci 'on:', 'env:', dan 'jobs:' HARUS berada di level yang sama (tanpa inden)
 on:
   push:
     branches:
@@ -10,7 +9,7 @@ on:
       - main
 
 env:
-  CSV_URL: "./MLProjects/Train_studentperformancefactors.csv"
+  CSV_URL: "./Workflow_CI/MLProjects/Train_studentperformancefactors.csv"
   TARGET_VAR: "Exam_Score"
 
 jobs:
@@ -31,8 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # PERBAIKAN: Instal requirements.txt dari folder proyek Anda
-          pip install -r MLProjects/requirements.txt
+          pip install -r ./Workflow_CI/MLProjects/requirements.txt
 
       - name: Run mlflow project
         run: |

@@ -2,7 +2,6 @@
 mlflow
 pandas
 fastapi
-uvicorn
-gunicorn
+uvicorn[standard]
 pydantic
 prometheus-fastapi-instrumentator

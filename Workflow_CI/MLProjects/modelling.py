@@ -38,7 +38,7 @@ X_train, X_test, y_train, y_test = preprocess(stuper, 'Exam_Score', ['Hours_Stud
 
 #Training Model
 with mlflow.start_run():
-    mlflow.autolog(log_models=False) #Agar tidak terjadi duplikat
+    mlflow.autolog()
     #Inisialisasi model
     lr = LinearRegression()
 
@@ -56,7 +56,3 @@ with mlflow.start_run():
     mlflow.log_metric("mae",mae)
     mlflow.log_metric("mse",mse)
     mlflow.log_metric("rmse",rmse)
-
-    #Membuat folder 'model/' di dalam artifacts
-    mlflow.sklearn.log_model(lr, "model")
-    print("Model berhasil disimpan.")

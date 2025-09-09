@@ -7,14 +7,14 @@ ARG MODEL_RUN_ID_ARG
 ENV MODEL_RUN_ID=$MODEL_RUN_ID_ARG
 
 #Copy path requirement-serve.txt
-COPY Monitoring_dan_Logging/requirements-serve.txt .
-RUN pip install --no-cache-dir -r requirements-serve.txt
+COPY Monitoring_dan_Logging/requirement-serve.txt .
+RUN pip install --no-cache-dir -r requirement-serve.txt
 
 # Copy API Script
 COPY Monitoring_dan_Logging/inference.py .
 
 # Copy artifact trained model
-COPY Workflow_CI/MLProjects/mlruns ./Workflow_CI/MLProjects/mlruns
+COPY mlruns ./mlruns
 
 #Port
 EXPOSE 5000

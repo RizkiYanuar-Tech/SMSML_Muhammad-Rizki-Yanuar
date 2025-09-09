@@ -1,0 +1,7 @@
+# requirements-serve.txt
+mlflow
+pandas
+fastapi
+uvicorn[standard]
+pydantic
+prometheus-fastapi-instrumentator

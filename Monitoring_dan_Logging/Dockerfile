@@ -16,8 +16,8 @@ COPY Monitoring_dan_Logging/inference.py .
 # Copy artifact trained model
 COPY mlruns ./mlruns
 
-#Port
-EXPOSE 5000
+# Port 8000
+EXPOSE 8000
 
-#Run univorn server from inference app
-CMD ["uvicorn", "inference:app", "--host", "0.0.0.0", "--port", "5000"]
+# Gunicorn as manager and uvicorn as worker
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "inference:app", "-b", "0.0.0.0:8000"]

@@ -17,7 +17,7 @@ COPY Monitoring_dan_Logging/inference.py .
 COPY mlruns ./mlruns
 
 #Port
-EXPOSE 5000
+EXPOSE 8000
 
 #Run univorn server from inference app
 CMD ["uvicorn", "inference:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -43,6 +43,10 @@ class PredictionInput(BaseModel):
 app = FastAPI()
 Instrumentator().instrument(app).expose(app)
 
+@app.post("/health")
+async def health_check():
+    return{"status": "OK"}
+
 @app.post("/invocations")
 async def predict(input_data: PredictionInput):
     try:

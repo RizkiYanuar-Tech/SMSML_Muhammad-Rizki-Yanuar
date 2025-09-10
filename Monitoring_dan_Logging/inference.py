@@ -22,7 +22,7 @@ if not MODEL_RUN_ID:
     print("MODEL_RUN_ID environment variable not set")
     sys.exit(1)
 
-model_uri = f"runs:/{MODEL_RUN_ID}/model"
+model_uri = f"/app/mlruns/0/{MODEL_RUN_ID}/artifacts/model"
 
 #Search mlruns folder
 os.environ["MLFLOW_TRACKING_URI"] = "file:/app/mlruns"

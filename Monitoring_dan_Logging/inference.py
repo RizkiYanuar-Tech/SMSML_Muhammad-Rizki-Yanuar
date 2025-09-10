@@ -25,7 +25,7 @@ if not MODEL_RUN_ID:
 model_uri = f"runs:/{MODEL_RUN_ID}/model"
 
 #Search mlruns folder
-os.environ["MLFLOW_TRACKING_URI"] = "file: /app/mlruns"
+os.environ["MLFLOW_TRACKING_URI"] = "file:/app/mlruns"
 
 print(f"Memuat model dari URI: {model_uri}")
 model = mlflow.pyfunc.load_model(model_uri)

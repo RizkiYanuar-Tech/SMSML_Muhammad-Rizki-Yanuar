@@ -57,7 +57,7 @@ jobs:
           # flag '-t' sebagai memberi nama tag image terbaru
           # '.' sebagai build context directori saat ini
 
-          docker build \
+          docker build --no-cache \
             --build-arg MODEL_RUN_ID_ARG=${{ env.RUN_ID }} \
             -f Monitoring_dan_Logging/Dockerfile \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/smsml:latest .

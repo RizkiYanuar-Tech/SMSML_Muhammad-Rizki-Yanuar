@@ -37,22 +37,24 @@ except FileNotFoundError:
 X_train, X_test, y_train, y_test = preprocess(stuper, 'Exam_Score', ['Hours_Studied','Tutoring_Sessions'], 'Preprocess_pipeline.joblib', 'Train_studentperformancefactors.csv', 'Test_studentperformancefactors.csv')
 
 #Training Model
-with mlflow.start_run():
-    mlflow.autolog()
-    #Inisialisasi model
-    lr = LinearRegression()
+mlflow.autolog(log_models=False)
+#Inisialisasi model
+lr = LinearRegression()
 
-    #Training
-    lr.fit(X_train, y_train)
+#Training
+lr.fit(X_train, y_train)
+y_pred = lr.predict(X_test)
 
-    y_pred = lr.predict(X_test)
+#Metrik evaluasi
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
 
-    #Metrik evaluasi
-    mae = mean_absolute_error(y_test, y_pred)
-    mse = mean_squared_error(y_test, y_pred)
-    rmse = np.sqrt(mse)
+#Lacak log metrik
+mlflow.log_metric("mae",mae)
+mlflow.log_metric("mse",mse)
+mlflow.log_metric("rmse",rmse)
 
-    #Lacak log metrik
-    mlflow.log_metric("mae",mae)
-    mlflow.log_metric("mse",mse)
-    mlflow.log_metric("rmse",rmse)
+#Simpan log model
+print("Simpan model")
+mlflow.sklearn.log_model(lr, "model")
